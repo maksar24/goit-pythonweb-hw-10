@@ -1,0 +1,24 @@
+[project]
+name = "goit-pythonweb-hw-08"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "maksar24",email = "74876375+maksar24@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard] (>=0.115.12,<0.116.0)",
+    "sqlalchemy (>=2.0.41,<3.0.0)",
+    "asyncpg (>=0.30.0,<0.31.0)",
+    "alembic (>=1.16.1,<2.0.0)",
+    "pydantic[email] (>=2.11.5,<3.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "goit_pythonweb_hw_08", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

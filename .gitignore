@@ -35,6 +35,7 @@ migrations/versions/__pycache__/
 *.swo
 
 # Logs and databases
+postgres-data/
 *.log
 *.sqlite3
 *.db
@@ -45,3 +46,4 @@ migrations/versions/__pycache__/
 # Windows
 Thumbs.db
 desktop.ini
+

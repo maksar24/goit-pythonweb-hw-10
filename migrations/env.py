@@ -2,7 +2,7 @@ import sys
 import os
 import asyncio
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 
 from logging.config import fileConfig
 
@@ -12,7 +12,7 @@ from sqlalchemy import pool
 from alembic import context
 
 from src.database.models import Base
-from src.config.config import config as app_config
+from src.config.settings import settings as app_config
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -35,6 +35,7 @@ config.set_main_option("sqlalchemy.url", app_config.DB_URL)
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
+
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
@@ -59,10 +60,12 @@ def run_migrations_offline() -> None:
     with context.begin_transaction():
         context.run_migrations()
 
+
 def run_migrations(connection: Connection):
     context.configure(connection=connection, target_metadata=target_metadata)
     with context.begin_transaction():
         context.run_migrations()
+
 
 async def run_async_migrations():
     connectable = async_engine_from_config(
@@ -75,6 +78,7 @@ async def run_async_migrations():
         await connection.run_sync(run_migrations)
 
     await connectable.dispose()
+
 
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode.
